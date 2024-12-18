@@ -9,3 +9,6 @@ python manage.py runserver
 + File HTML nằm trong thư mục template
 
 + File CSS nằm trong thư mục static
+
++ Thiếu file setting.py ở đây, m cop file ý vào thư mục PTTKHT cho tao
+
