@@ -5,3 +5,7 @@
 python manage.py runserver
 
 + Để ý terminal, thiếu module nào thì nhớ pip module đó là được
+
++ File HTML nằm trong thư mục template
+
++ File CSS nằm trong thư mục static
