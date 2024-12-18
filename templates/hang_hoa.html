@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/hang_hoa.css">
+    <title>Hàng Hoá</title>
+</head>
+<body>
+    <div class="navbar">
+            <a href="tong_quan.html">TỔNG QUAN</a>
+            <a href="#">HÀNG HOÁ</a>
+            <a href="#">TRANG CHỦ</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>HÀNG HOÁ</h2>
+            <div class="filter">
+                <h3>Nhóm hàng</h3>
+                <div class="filter-content">
+                    <!-- Nội dung nhóm hàng -->
+                </div>
+            </div>
+            <div class="filter">
+                <h3>Tồn kho</h3>
+                <div class="filter-content">
+                    <!-- Nội dung tồn kho -->
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <input type="text" class="search-bar" placeholder="Tìm kiếm">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Mã hàng</th>
+                        <th>Tên hàng</th>
+                        <th>Giá bán</th>
+                        <th>Tồn kho</th>
+                        <th>Số lượng</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu hàng hoá -->
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>MH001</td>
+                        <td>Sản phẩm A</td>
+                        <td>100,000 VND</td>
+                        <td>50</td>
+                        <td>1000</td>
+                        <td>Còn hàng</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>MH002</td>
+                        <td>Sản phẩm B</td>
+                        <td>200,000 VND</td>
+                        <td>30</td>
+                        <td>5</td>
+                        <td>Hết hàng</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

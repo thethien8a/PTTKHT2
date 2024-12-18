@@ -1,0 +1,57 @@
+{% load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập với Google</title>
+    <link rel="stylesheet" href="{% static 'css/google.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+        }
+        .btn-google {
+            background-color: #4285F4;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .btn-google:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Đăng nhập với Google</h1>
+        <p>Bạn sắp đăng nhập bằng tài khoản Google.</p>
+        <a href="http://127.0.0.1:8000/accounts/google/login/callback/?code=4%2F0AanRRruqmdhZ_zSB6ctU5lYpzw1GecT8fcXPtyxZgjuxGS2zlsmShAftQIgjs2mvN8MX_w&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=consent"
+        class="btn-google">Tiếp tục với Google</a>
+    </div>
+</body>
+</html>
+

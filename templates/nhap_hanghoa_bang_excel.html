@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/hang_hoa.css">
+    <title>Hàng Hoá</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="tong_quan.html">TỔNG QUAN</a>
+        <a href="#">HÀNG HOÁ</a>
+        <a href="#">TRANG CHỦ</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>HÀNG HOÁ</h2>
+        </div>
+        <div class="content">
+            <input type="file" id="fileInput" accept=".xlsx, .xls">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Mã hàng</th>
+                        <th>Tên hàng</th>
+                        <th>Giá bán</th>
+                        <th>Tồn kho</th>
+                        <th>Số lượng</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Dữ liệu hàng hoá sẽ được thêm vào đây -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

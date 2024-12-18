@@ -1,0 +1,163 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Định dạng cho toàn bộ trang */
+  body {
+    background-color: #c6c6c6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container chính */
+  .login-container {
+    width: 400px;
+    height: 550px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Logo */
+  .logo img {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form */
+  .login-form {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .forgot-password {
+    font-size: 12px;
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  /* Nút đăng nhập */
+  .btn-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #00e279;
+    margin-bottom: 15px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-login:hover {
+    background-color: #01ab39;
+  }
+  
+  /* Separator */
+  .separator {
+    font-size: 14px;
+    color: #888;
+    margin: 15px 0;
+  }
+  
+  /* Social login buttons */
+  .social-login {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn-social {
+    width: 48%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .facebook {
+    background-color: #01ab39;
+
+    color: #fff;
+  }
+  
+  .google {
+    background-color: #01ab39;
+
+    color: #fff;
+  }
+  
+  .facebook:hover {
+    background-color: #365899;
+  }
+  
+  .google:hover {
+    background-color: #c23321;
+  }
+  
+  /* Đăng ký */
+  .register p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .register a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .register a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Chính sách */
+  .policy p {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .policy a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .policy a:hover {
+    text-decoration: underline;
+  }
+  

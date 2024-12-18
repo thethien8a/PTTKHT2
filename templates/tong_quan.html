@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Bán Hàng</title>
+    <link rel="stylesheet" href="css/tong_quan.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">TỔNG QUAN</a>
+        <a href="hang_hoa.html">HÀNG HOÁ</a>
+        <a href="#">TRANG CHỦ</a>
+        
+    </div>
+
+    <div class="container">
+        <!-- Kết quả bán hàng -->
+        <div class="result-box">
+            <h2>KẾT QUẢ BÁN HÀNG</h2>
+            <div class="revenue" id="revenue">0 VND</div>
+        </div>
+
+        <!-- Doanh thu -->
+        <div class="chart-box">
+            <h2>DOANH THU</h2>
+            <canvas id="revenueChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu doanh thu mẫu
+        const totalRevenue = 1342149000; // Tổng doanh thu trong tháng hiện tại
+        const dailyRevenue = [90000000, 15000000, 30000000, 25000000, 18000000, 22000000, 27000000]; // Doanh thu theo ngày
+        const labels = ["1/12", "2/12", "3/12", "4/12", "5/12", "6/12", "7/12"]; // Nhãn ngày
+
+        // Hiển thị tổng doanh thu
+        document.getElementById('revenue').textContent = totalRevenue.toLocaleString('vi-VN') + ' VND';
+
+        // Tạo biểu đồ bằng Chart.js
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Doanh thu (VND)',
+                    data: dailyRevenue,
+                    backgroundColor: '#6c9e31',
+                    borderColor: '#4b7f23',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 12,
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 200000000, // Tối đa là 200 triệu
+                        ticks: {
+                            stepSize: 20000000, // Độ chia 20 triệu
+                            callback: function (value) {
+                                return value.toLocaleString('vi-VN') + ' VND'; // Định dạng tiền tệ
+                            },
+                            font: {
+                                size: 12,
+                            }
+                        },
+                        title: {
+                            display: true,
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            drawBorder: false,
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.raw.toLocaleString('vi-VN') + ' VND';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

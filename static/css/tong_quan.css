@@ -1,0 +1,79 @@
+/* Định dạng chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e5e2db;
+}
+
+/* Thanh điều hướng */
+.navbar {
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #6c9e31;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Phần kết quả doanh thu */
+.container {
+    padding: 20px;
+    text-align: left;
+}
+
+.result-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin: 10px auto;
+}
+
+.result-box h2 {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+}
+
+.revenue {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #6c9e31;
+}
+/* Biểu đồ doanh thu */
+.chart-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    height: 500px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: black;
+}
+
+.chart-box canvas {
+    max-width: 90%;
+    max-height: 90%;
+}

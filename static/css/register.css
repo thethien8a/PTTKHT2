@@ -1,0 +1,132 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Định dạng cho toàn bộ trang */
+  body {
+    background-color: #f1f3f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container chính */
+  .register-container {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Logo */
+  .logo img {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form */
+  .register-form {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group label span {
+    color: red;
+  }
+  
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .password-hint {
+    background-color: #e6f7ff;
+    padding: 10px;
+    font-size: 12px;
+    border-left: 4px solid #007bff;
+    margin-top: 5px;
+    color: #333;
+  }
+  
+  .password-hint ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .password-hint ul li {
+    margin-bottom: 5px;
+  }
+  
+  /* Nút đăng ký */
+  .btn-register {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  .btn-register:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Căn chỉnh checkbox và văn bản */
+.terms {
+  display: flex;
+  align-items: center; /* Căn giữa checkbox và văn bản */
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.terms-label {
+  display: flex;
+  align-items: center; /* Giữ checkbox và văn bản trên cùng một hàng */
+}
+
+.terms-checkbox {
+  margin-right: 8px; /* Khoảng cách giữa checkbox và văn bản */
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

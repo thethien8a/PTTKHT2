@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e8e6e1;
+}
+
+
+/* Thanh điều hướng */
+.navbar {
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #6c9e31;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Chức năng */
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 25%;
+    padding: 10px;
+    background-color: #e0ded9;
+    border-radius: 8px;
+}
+
+.sidebar h2 {
+    color: #6c9e31;
+}
+
+.sidebar .filter {
+    margin-top: 20px;
+}
+
+.sidebar .filter h3 {
+    color: #6c9e31;
+    margin-bottom: 10px;
+}
+
+.content {
+    width: 75%;
+    padding-left: 20px;
+}
+
+.search-bar {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-table thead {
+    background-color: #6c9e31;
+    color: #ffffff;
+}
+
+.product-table th,
+.product-table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.product-table th {
+    font-size: 14px;
+}
+
+.product-table td {
+    font-size: 13px;
+}
+
+.product-table tbody tr:hover {
+    background-color: #f4f4f4;
+}
