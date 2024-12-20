@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kết Quả Bán Hàng</title>
-    <link rel="stylesheet" href="css/tong_quan.css">
+    <link rel="stylesheet" href="{% static 'css/tong_quan.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="navbar">
         <a href="#">TỔNG QUAN</a>
-        <a href="hang_hoa.html">HÀNG HOÁ</a>
+        <a href = "{% url 'hang_hoa' %}">HÀNG HOÁ</a>
         <a href="#">TRANG CHỦ</a>
-        
+        <a href="#" onclick="confirmLogout()">ĐĂNG XUẤT</a>
     </div>
 
     <div class="container">
@@ -30,6 +31,14 @@
     </div>
 
     <script>
+        // Hàm xác nhận đăng xuất
+        function confirmLogout() {
+            const confirmBox = confirm("Liệu bạn có chắc chắn muốn đăng xuất không?");
+            if (confirmBox) {
+                window.location.href = "{% url 'home' %}"; // Chuyển hướng tới trang đăng nhập hoặc trang chủ
+            }
+        }
+
         // Dữ liệu doanh thu mẫu
         const totalRevenue = 1342149000; // Tổng doanh thu trong tháng hiện tại
         const dailyRevenue = [90000000, 15000000, 30000000, 25000000, 18000000, 22000000, 27000000]; // Doanh thu theo ngày
