@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quên Mật Khẩu</title>
+    <link rel="stylesheet" href="forgetpass.css"> <!-- Đường dẫn đến file CSS -->
+    
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logo"> <!-- Thay logo.png bằng logo của bạn -->
+        <form action="/reset-password" method="POST" onsubmit="return validatePhoneNumber()"> <!-- Thay URL endpoint tương ứng -->
+            <div class="form-group">
+                <input type="phone" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn" required>
+                <div id="error-message" class="error-message">Số điện thoại không hợp lệ</div>
+            </div>
+            <button type="submit" class="btn">Gửi mã OTP</button>
+        </form>
+    </div>
+    
+    <script>
+        function validatePhoneNumber() {
+            const phoneInput = document.getElementById('phone');
+            const errorMessage = document.getElementById('error-message');
+            const phonePattern = /^\d+$/; // Chỉ cho phép nhập số
+
+            if (!phonePattern.test(phoneInput.value)) {
+                errorMessage.style.display = 'block';
+                return false;
+            } else {
+                errorMessage.style.display = 'none';
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
