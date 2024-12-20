@@ -50,7 +50,7 @@ body {
 }
 
 .heading_container h2 span {
-  color: #00bbf0;
+  color: #2add51;
 }
 
 .heading_container p {
@@ -454,7 +454,7 @@ a:focus {
 }
 
 .service_section .box .detail-box a:hover {
-  color: #00bbf0;
+  color: #2ccd62;
 }
 
 .service_section .btn-box {
@@ -470,7 +470,7 @@ a:focus {
 .service_section .btn-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #00bbf0;
+  background-color: #2dbd3c;
   color: #ffffff;
   border-radius: 0;
   -webkit-transition: all 0.3s;
@@ -776,7 +776,7 @@ a:focus {
 
 /* client section end */
 .info_section {
-  background-color: #00204a;
+  background-color: #09771d;
   color: #ffffff;
   padding: 45px 0 15px 0;
 }
@@ -899,7 +899,7 @@ a:focus {
   text-align: center;
   display: inline-block;
   padding: 10px 55px;
-  background-color: #00bbf0;
+  background-color: #85ff91;
   color: #ffffff;
   border-radius: 0;
   -webkit-transition: all 0.3s;
