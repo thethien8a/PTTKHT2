@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập mã OTP</title>
+    <link rel="stylesheet" href="otp.css"> <!-- Đường dẫn đến file CSS -->
+    <script>
+        function moveToNextInput(event, nextInputId) {
+            const input = event.target;
+            if (input.value.length === 1 && nextInputId) {
+                document.getElementById(nextInputId).focus();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="otp-container">
+        <h2>Nhập mã OTP</h2>
+        <form action="/verify-otp" method="POST">
+            <div class="otp-inputs">
+                <input type="text" maxlength="1" id="otp-1" name="otp-1" oninput="moveToNextInput(event, 'otp-2')" required>
+                <input type="text" maxlength="1" id="otp-2" name="otp-2" oninput="moveToNextInput(event, 'otp-3')" required>
+                <input type="text" maxlength="1" id="otp-3" name="otp-3" oninput="moveToNextInput(event, 'otp-4')" required>
+                <input type="text" maxlength="1" id="otp-4" name="otp-4" oninput="moveToNextInput(event, 'otp-5')" required>
+                <input type="text" maxlength="1" id="otp-5" name="otp-5" oninput="moveToNextInput(event, 'otp-6')" required>
+                <input type="text" maxlength="1" id="otp-6" name="otp-6" required>
+            </div>
+            <button type="submit" class="submit-btn">Xác nhận</button>
+        </form>
+    </div>
+</body>
+</html>
