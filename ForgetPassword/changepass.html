@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi Mật Khẩu</title>
+    <link rel="stylesheet" href="changepass.css"> <!-- Đường dẫn đến file CSS -->
+    <script>
+        function validatePasswords(event) {
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (newPassword !== confirmPassword) {
+                event.preventDefault();
+                errorMessage.textContent = 'Mật khẩu mới và xác nhận mật khẩu không khớp!';
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="change-password-container">
+        <h2>Đổi Mật Khẩu</h2>
+        <form action="/change-password" method="POST" onsubmit="validatePasswords(event)">
+            <div class="form-group">
+                <input type="password" id="new-password" name="new-password" placeholder="Nhập mật khẩu mới" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Xác nhận mật khẩu mới" required>
+                <div id="error-message" class="error-message">Mật khẩu mới và xác nhận mật khẩu không khớp!</div>
+            </div>
+            <button type="submit" class="submit-btn">Đổi Mật Khẩu</button>
+        </form>
+    </div>
+</body>
+</html>
