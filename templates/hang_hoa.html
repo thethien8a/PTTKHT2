@@ -19,9 +19,17 @@
             <a href="#"><i class="fas fa-box"></i> Đơn hàng</a>
             <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
         </nav>
-        <div class="user">
+       <div class="user">
             <span>0379345012</span>
-            <img src="/images/usr_icon.png" alt="User Icon">
+            <div class="dropdown-icon" onclick="toggleDropdown()">
+                <img src="/images/usr_icon.png" alt="User Icon">
+            </div>
+            <div class="dropdown-list" id="dropdownList">
+                <a href="#"><i class="fas fa-user"></i> Hồ sơ</a>
+                <a href="#"><i class="fas fa-lock"></i> Thay đổi mật khẩu</a>
+                <a href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+            </div>
         </div>
     </header>
 
@@ -153,6 +161,23 @@
                         row.style.display = match ? '' : 'none';
                     });
                 });
+            </script>
+
+            <!-- Nhấn vào icon user hiển thị danh sách -->
+            <script>
+                function toggleDropdown() {
+                const dropdownList = document.getElementById('dropdownList');
+                dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
+                }
+
+                // Đóng dropdown khi nhấn ngoài
+                window.onclick = function(event) {
+                const dropdown = document.querySelector('.user');
+                const dropdownList = document.getElementById('dropdownList');
+                if (!dropdown.contains(event.target)) {
+                    dropdownList.style.display = 'none';
+                }
+                }
             </script>
         </div>
     </div>
