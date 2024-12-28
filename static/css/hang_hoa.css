@@ -40,11 +40,31 @@ a i {
     color: #4CAF50;
     font-size: 16px;
 }
-.user img {
+.dropdown-icon img {
     width: 24px;
     height: 24px;
     border-radius: 50%;
     background-color: #4CAF50;
+}
+.dropdown-list {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+.dropdown-list a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+}
+.dropdown-list a:hover {
+    background-color: #f0f0f0;
 }
 .user span {
     font-weight: bold;
