@@ -3,67 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/hang_hoa.css">
-    <title>Hàng Hoá</title>
+    <title>Quản Lý Hàng Hoá</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/hang_hoa2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
+
 <body>
-    <div class="navbar">
-            <a href="tong_quan.html">TỔNG QUAN</a>
-            <a href="#">HÀNG HOÁ</a>
-            <a href="#">TRANG CHỦ</a>
-    </div>
+    <!-- Thanh header -->
+    <header class="header">
+        <div class="logo">G10 TEAM</div>
+        <nav class="nav">
+            <a href="#"><i class="fas fa-tachometer-alt"></i> Tổng quan</a>
+            <a href="#"><i class="fas fa-cube"></i> Hàng hoá</a>
+            <a href="#"><i class="fas fa-box"></i> Đơn hàng</a>
+            <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
+        </nav>
+        <div class="user">
+            <span>0379345012</span>
+            <img src="/images/usr_icon.png" alt="User Icon">
+        </div>
+    </header>
+
     <div class="container">
-        <div class="sidebar">
-            <h2>HÀNG HOÁ</h2>
-            <div class="filter">
-                <h3>Nhóm hàng</h3>
-                <div class="filter-content">
-                    <!-- Nội dung nhóm hàng -->
+        <!-- Tìm kiếm danh mục hàng hoá -->
+        <div class="left-panel">
+            <div class="title">Hàng hoá</div>
+            <div class="search-group">
+                <div class="label">Loại hàng</div>
+                <div class="input-container">
+                    <img src="/images/search_icon.png" alt="Search">
+                    <input type="text" placeholder="Tìm kiếm loại hàng">
                 </div>
             </div>
-            <div class="filter">
-                <h3>Tồn kho</h3>
-                <div class="filter-content">
-                    <!-- Nội dung tồn kho -->
+    
+            <div class="search-group">
+                <div class="label">Tồn kho</div>
+                <div class="input-container">
+                    <img src="/images/search_icon.png" alt="Search">
+                    <input type="text" placeholder="Tìm kiếm hàng tồn kho">
                 </div>
             </div>
         </div>
-        <div class="content">
-            <input type="text" class="search-bar" placeholder="Tìm kiếm">
-            <table class="product-table">
-                <thead>
-                    <tr>
-                        <th><input type="checkbox"></th>
-                        <th>Mã hàng</th>
-                        <th>Tên hàng</th>
-                        <th>Giá bán</th>
-                        <th>Tồn kho</th>
-                        <th>Số lượng</th>
-                        <th>Trạng thái</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dữ liệu hàng hoá -->
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>MH001</td>
-                        <td>Sản phẩm A</td>
-                        <td>100,000 VND</td>
-                        <td>50</td>
-                        <td>1000</td>
-                        <td>Còn hàng</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>MH002</td>
-                        <td>Sản phẩm B</td>
-                        <td>200,000 VND</td>
-                        <td>30</td>
-                        <td>5</td>
-                        <td>Hết hàng</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Ô tìm kiếm, nút và bảng -->
+        <div class="right-panel">
+            <!-- Ô tìm kiếm, các nút chức năng-->
+            <div class="top-row">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm">
+                </div>
+                <div class="buttons">
+                    <button class="button">Thêm</button>
+                    <button class="button" id="exportButton">Xuất file</button>
+                    <button class="button">Sửa</button>
+                    <button class="button">Xoá</button>
+                </div>
+            </div>
+            <!-- Bảng-->
+            <div class="bottom-row">
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>Ảnh</th>
+                            <th>Mã hàng</th>
+                            <th>Tên hàng</th>
+                            <th>Giá bán</th>
+                            <th>Tồn kho</th>
+                            <th>Số lượng</th>
+                            <th>Loại hàng</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td><img src="https://via.placeholder.com/50" alt="Ảnh sản phẩm"></td>
+                            <td>MH001</td>
+                            <td>Sản phẩm 1</td>
+                            <td>100,000 VND</td>
+                            <td>50</td>
+                            <td>10</td>
+                            <td>Sách giáo khoa</td>
+                            <td>Còn hàng</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td><img src="https://via.placeholder.com/50" alt="Ảnh sản phẩm"></td>
+                            <td>MH002</td>
+                            <td>Sản phẩm 2</td>
+                            <td>200,000 VND</td>
+                            <td>20</td>
+                            <td>5</td>
+                            <td>Sách giáo khoa</td>
+                            <td>Hết hàng</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td><img src="https://via.placeholder.com/50" alt="Ảnh sản phẩm"></td>
+                            <td>MH003</td>
+                            <td>Sản phẩm 3</td>
+                            <td>150,000 VND</td>
+                            <td>30</td>
+                            <td>15</td>
+                            <td>Sách khoa học</td>
+                            <td>Còn hàng</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Tính năng Xuất file-->
+            <script>
+                document.getElementById('exportButton').addEventListener('click', () => {
+                    const table = document.querySelector('.product-table');
+                    const rows = Array.from(table.rows).map(row => 
+                        Array.from(row.cells).map(cell => {
+
+                            if (cell.querySelector('img')) {           // Kiểm tra nếu ô là hình ảnh
+                                return cell.querySelector('img').src; // Trả về URL của ảnh
+                            } else if (cell.querySelector('input[type="checkbox"]')) {
+                                return cell.querySelector('input[type="checkbox"]').checked ? "✔" : ""; // Trả về trạng thái checkbox
+                            }
+                            return cell.textContent.trim();
+                        })
+                    );
+                    const worksheet = XLSX.utils.aoa_to_sheet(rows);
+                    const workbook = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(workbook, worksheet, "Products");
+                    XLSX.writeFile(workbook, "products.xlsx");
+                });
+            </script>
+
+            <!-- Tính năng tìm kiếm -->
+            <script>
+                const searchInput = document.getElementById('searchInput');
+                const table = document.querySelector('.product-table tbody');
+
+                searchInput.addEventListener('input', () => {
+                    const searchValue = searchInput.value.toLowerCase(); // Lấy giá trị tìm kiếm, chuyển thành chữ thường
+                    const rows = table.querySelectorAll('tr'); // Lấy tất cả các dòng trong bảng
+
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll('td'); // Lấy tất cả các ô trong dòng
+                        const match = Array.from(cells).some(cell => 
+                            cell.textContent.toLowerCase().includes(searchValue)
+                        );
+                        // Nếu có giá trị phù hợp, hiển thị dòng, nếu không, ẩn dòng
+                        row.style.display = match ? '' : 'none';
+                    });
+                });
+            </script>
         </div>
     </div>
 </body>
