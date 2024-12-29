@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/hang_hoa2.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+
+</style>
+
+<body>
+    <!-- Thanh header -->
+    <header class="header">
+        <div class="logo">G10 TEAM</div>
+        <nav class="nav">
+            <a href="#"><i class="fas fa-tachometer-alt"></i> Tổng quan</a>
+            <a href="#"><i class="fas fa-cube"></i> Hàng hoá</a>
+            <a href="#"><i class="fas fa-box"></i> Đơn hàng</a>
+            <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
+        </nav>
+        <div class="user">
+            <span>0379345012</span>
+            <div class="dropdown-icon" onclick="toggleDropdown()">
+                <img src="/images/usr_icon.png" alt="User Icon">
+            </div>
+            <div class="dropdown-list" id="dropdownList">
+                <a href="#"><i class="fas fa-user"></i> Hồ sơ</a>
+                <a href="#"><i class="fas fa-lock"></i> Thay đổi mật khẩu</a>
+                <a href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="up-container">
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm đơn hàng...">
+        </div>
+        <div class="buttons">
+            <button>
+                <i class="fa fa-search"></i> Tìm kiếm
+            </button>
+            <button>
+                <i class="fa fa-refresh"></i> Cập nhật
+            </button>
+            <button>
+                <i class="fa fa-file-import"></i> Nhập file
+            </button>
+            <button>
+                <i class="fa fa-file-export"></i> Xuất file
+            </button>
+            <button>
+                <i class="fa fa-sort"></i> Sắp xếp
+            </button>
+            <button>
+                <i class="fa fa-trash"></i> Xóa
+            </button>
+        </div>
+    </div>
+    <div class="down-container">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select-all"></th> <!-- Ô tick đầu tiên -->
+                        <th>Thông tin đơn hàng</th>
+                        <th>Mã đơn hàng</th>
+                        <th>Khách hàng</th>
+                        <th>Thời gian</th>
+                        <th>Trạng thái</th>
+                        <th>Tổng tiền</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Dự kiến ngày giao</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Thêm nhiều dòng dữ liệu để kiểm tra cuộn -->
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Sách giáo khoa Toán 10 Cánh diều tập 2</td>
+                        <td>MH002</td>
+                        <td>Hà Mạnh</td>
+                        <td>2024-12-30</td>
+                        <td>Đang chuẩn bị hàng</td>
+                        <td>500,000 VNĐ</td>
+                        <td>Thẻ tín dụng</td>
+                        <td>2024-12-31</td>
+                        <td>Để ở cửa</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Sách giáo khoa Toán 10 Cánh diều tập 2</td>
+                        <td>MH002</td>
+                        <td>Hà Mạnh</td>
+                        <td>2024-12-30</td>
+                        <td>Đang chuẩn bị hàng</td>
+                        <td>500,000 VNĐ</td>
+                        <td>Thẻ tín dụng</td>
+                        <td>2024-12-31</td>
+                        <td>Để ở cửa</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Sách giáo khoa Toán 10 Cánh diều tập 2</td>
+                        <td>MH002</td>
+                        <td>Hà Mạnh</td>
+                        <td>2024-12-30</td>
+                        <td>Đang chuẩn bị hàng</td>
+                        <td>500,000 VNĐ</td>
+                        <td>Thẻ tín dụng</td>
+                        <td>2024-12-31</td>
+                        <td>Để ở cửa</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Sách giáo khoa Toán 10 Cánh diều tập 2</td>
+                        <td>MH002</td>
+                        <td>Hà Mạnh</td>
+                        <td>2024-12-30</td>
+                        <td>Đang chuẩn bị hàng</td>
+                        <td>500,000 VNĐ</td>
+                        <td>Thẻ tín dụng</td>
+                        <td>2024-12-31</td>
+                        <td>Để ở cửa</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Sách giáo khoa Toán 10 Cánh diều tập 2</td>
+                        <td>MH002</td>
+                        <td>Hà Mạnh</td>
+                        <td>2024-12-30</td>
+                        <td>Đang chuẩn bị hàng</td>
+                        <td>500,000 VNĐ</td>
+                        <td>Thẻ tín dụng</td>
+                        <td>2024-12-31</td>
+                        <td>Để ở cửa</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Cuốn sách: "Lập trình React.js"</td>
+                        <td>ORD12345</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>2024-12-30 10:15</td>
+                        <td>Đang xử lý</td>
+                        <td>300,000 VND</td>
+                        <td>Thanh toán khi nhận hàng</td>
+                        <td>2024-12-31</td>
+                        <td>Giao sách tại nhà, yêu cầu giao trước 12h</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Cuốn sách: "Học Python căn bản"</td>
+                        <td>ORD12346</td>
+                        <td>Trần Thị B</td>
+                        <td>2024-12-29 14:30</td>
+                        <td>Đã hoàn thành</td>
+                        <td>450,000 VND</td>
+                        <td>Thẻ tín dụng</td>
+                        <td>2025-01-02</td>
+                        <td>Giao sách vào sáng mai, thanh toán qua thẻ</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Cuốn sách: "Lịch sử Việt Nam"</td>
+                        <td>ORD12347</td>
+                        <td>Phạm Minh C</td>
+                        <td>2024-12-28 09:00</td>
+                        <td>Đang vận chuyển</td>
+                        <td>200,000 VND</td>
+                        <td>Chuyển khoản ngân hàng</td>
+                        <td>2024-12-31</td>
+                        <td>Giao sách theo địa chỉ đã đăng ký, đã thanh toán chuyển khoản</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Cuốn sách: "Tư duy phản biện"</td>
+                        <td>ORD12348</td>
+                        <td>Lê Thị D</td>
+                        <td>2024-12-27 16:45</td>
+                        <td>Đã hoàn thành</td>
+                        <td>350,000 VND</td>
+                        <td>Thanh toán qua ví điện tử</td>
+                        <td>2025-01-01</td>
+                        <td>Giao sách vào buổi chiều, thanh toán qua ví điện tử</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="row-checkbox"></td>
+                        <td>Cuốn sách: "Giải tích toán học"</td>
+                        <td>ORD12349</td>
+                        <td>Vũ Minh E</td>
+                        <td>2024-12-26 11:20</td>
+                        <td>Đang xử lý</td>
+                        <td>500,000 VND</td>
+                        <td>Thẻ tín dụng</td>
+                        <td>2024-12-30</td>
+                        <td>Giao sách theo yêu cầu, thanh toán qua thẻ tín dụng</td>
+                    </tr>
+                    
+                    <!-- Sao chép thêm nhiều dòng để tạo dữ liệu mẫu -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const selectAllCheckbox = document.getElementById('select-all');
+        const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+    
+        selectAllCheckbox.addEventListener('change', function () {
+            rowCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        });
+    </script>
+    
+</body>
+</html>
+    
