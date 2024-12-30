@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Bán Hàng</title>
+    <link rel="stylesheet" href="/static/css/tong_quan.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    }
+
+    .dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    }
+
+    .top-row {
+    display: grid;
+    padding: 20px 40px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    }
+    .revenue {
+    margin-top: 24px;
+    margin-bottom: 10px;
+    }
+    .card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    }
+
+    .card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    }
+
+    .card p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+
+    .trend {
+    font-size: 12px;
+    }
+
+    .trend.up {
+    color: green;
+    }
+
+    .trend.down {
+    color: red;
+    }
+
+    .progress-bar {
+    background: #f0f0f0;
+    border-radius: 5px;
+    height: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    }
+
+    .progress {
+    background: #4caf50;
+    height: 100%;
+    border-radius: 5px;
+    }
+
+    .bottom-row {
+    display: grid;
+    padding: 0px 40px;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    }
+    .chart-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 900px;
+    height: 500px;
+    display: flex;
+    margin: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    }
+
+.chart-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: black;
+}
+.chart-box canvas {
+    max-width: 90%;
+    max-height: 90%;
+}
+.chart-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.chart-card canvas {
+    max-width: 90%;
+    max-height: 90%;
+}
+</style>
+<body>
+    <!-- Thanh header -->
+    <header class="header">
+        <div class="logo">G10 TEAM</div>
+        <nav class="nav">
+            <a href="#"><i class="fas fa-tachometer-alt"></i> Tổng quan</a>
+            <a href="{% url 'hang_hoa' %}"><i class="fas fa-cube"></i> Hàng hoá</a>
+            <a href="#"><i class="fas fa-box"></i> Đơn hàng</a>
+            <a href="#"><i class="fas fa-user"></i> Khách hàng</a>
+        </nav>
+        <div class="user">
+            <span>0379345012</span>
+            <div class="dropdown-icon" onclick="toggleDropdown()">
+                <img src="/static/images/usr_icon.png" alt="User Icon">
+            </div>
+            <div class="dropdown-list" id="dropdownList">
+                <a href="#"><i class="fas fa-user"></i> Hồ sơ</a>
+                <a href="#"><i class="fas fa-lock"></i> Thay đổi mật khẩu</a>
+                <a href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                <a href="#"><i class="fas fa-sign-out-alt" onclick="confirmLogout()"></i> Đăng xuất</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard">
+        <!-- Hàng trên cùng -->
+        <div class="top-row">
+            <div class="card">
+                <h3><i class="fas fa-wallet"></i> Doanh thu</h3>
+                <div class="revenue" id="revenue">0 VND</div>
+                <span class="trend down">↓12% kể từ tháng trước</span>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-users"></i> Total Customers</h3>
+                <p>1.6k</p>
+                <span class="trend up">↑ 16% kể từ tháng trước</span>
+            </div>
+            <div class="card">
+                <h3>Tasks Progress</h3>
+                <p>75.5%</p>
+                <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+                </div>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-dollar-sign"></i> Lợi nhuận</h3>
+                <p>$23k</p>
+            </div>
+        </div>
+
+        <!-- Hàng thứ hai -->
+        <div class="bottom-row">
+        <!-- Biểu đồ doanh thu -->
+            <div class="chart-box">
+                <h3>Doanh thu</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+        
+            <!-- Biểu đồ sản phẩm bán chạy -->
+            <div class="chart-card">
+                <h3>Sản phẩm bán chạy</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // Hàm xác nhận đăng xuất
+        function confirmLogout() {
+            const confirmBox = confirm("Liệu bạn có chắc chắn muốn đăng xuất không?");
+            if (confirmBox) {
+                window.location.href = "{% url 'home' %}"; // Chuyển hướng tới trang đăng nhập hoặc trang chủ
+            }
+        }
+
+        // Dữ liệu doanh thu mẫu
+        const totalRevenue = 1342149000; // Tổng doanh thu trong tháng hiện tại
+        const dailyRevenue = [90000000, 15000000, 30000000, 25000000, 18000000, 22000000, 27000000]; // Doanh thu theo ngày
+        const labels = ["1/12", "2/12", "3/12", "4/12", "5/12", "6/12", "7/12"]; // Nhãn ngày
+
+        // Hiển thị tổng doanh thu
+        document.getElementById('revenue').textContent = totalRevenue.toLocaleString('vi-VN') + ' VND';
+
+        // Tạo biểu đồ bằng Chart.js
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Doanh thu (VND)',
+                    data: dailyRevenue,
+                    backgroundColor: '#6c9e31',
+                    borderColor: '#4b7f23',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 12,
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 100000000, // Tối đa là 200 triệu
+                        ticks: {
+                            stepSize: 10000000, // Độ chia 20 triệu
+                            callback: function (value) {
+                                return value.toLocaleString('vi-VN') + ' VND'; // Định dạng tiền tệ
+                            },
+                            font: {
+                                size: 12,
+                            }
+                        },
+                        title: {
+                            display: true,
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            drawBorder: false,
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.raw.toLocaleString('vi-VN') + ' VND';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+<script>
+    // Dữ liệu biểu đồ
+    const data = {
+      labels: ['Sách A', 'Sách B'], // Tên sản phẩm
+      datasets: [{
+        label: 'Số lượng bán được',
+        data: [220, 180], // Số liệu cho từng sản phẩm
+        backgroundColor: [
+            'rgba(34, 139, 34, 0.6)', // Màu xanh lá đậm cho Sách A
+            'rgba(50, 205, 50, 0.6)', // Màu xanh lá nhạt hơn cho Sách B
+        ],
+      }]
+    };
+
+    // Cấu hình biểu đồ
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false, // Để biểu đồ giãn vừa với container
+        plugins: {
+          legend: {
+            display: false // Ẩn chú thích nếu không cần thiết
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Số lượng'
+            }
+          },
+        }
+      }
+    };
+
+    // Vẽ biểu đồ
+    const barChart = new Chart(
+      document.getElementById('barChart'),
+      config
+    );
+  </script>
+</body>
+</html>
